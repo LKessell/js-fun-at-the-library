@@ -6,10 +6,20 @@ function shelfBook(bookTitle, shelfName) {
   };
 }
 
+function unshelfBook(bookTitle, shelfName) {
+  for (i = 0; i < shelfName.length; i++) {
+    if (shelfName[i].title === bookTitle) {
+      shelfName.splice(i, 1);
+      return shelfName;
+    };
+  };
+}
+
+
 
 module.exports = {
   shelfBook,
-  // unshelfBook,
+  unshelfBook,
   // listTitles,
   // searchShelf
 };
