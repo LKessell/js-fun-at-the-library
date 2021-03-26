@@ -4,7 +4,7 @@ function shelfBook(title, shelfName) {
   } else {
     return;
   };
-}
+};
 
 function unshelfBook(title, shelfName) {
   for (var i = 0; i < shelfName.length; i++) {
@@ -13,22 +13,40 @@ function unshelfBook(title, shelfName) {
       return shelfName;
     };
   };
-}
+};
+
+// listTitles Round 1!
+// function listTitles(shelfName) {
+//   return `${shelfName[0].title}, ${shelfName[1].title}, ${shelfName[2].title}`;
+// };
 
 function listTitles(shelfName) {
-  return `${shelfName[0].title}, ${shelfName[1].title}, ${shelfName[2].title}`;
-}
+  var titles = [];
+  for (var i = 0; i < shelfName.length; i++) {
+    titles.push(shelfName[i].title);
+  };
+  return titles.join(", ");
+};
+
+// searchShelf Round 1!
+// function searchShelf(shelfName, title) {
+//   for (var i = 0; i < shelfName.length; i++) {
+//     if (shelfName[i].title === title) {
+//       return true;
+//     } else {
+//       continue;
+//     };
+//   };
+//   return false;
+// };
 
 function searchShelf(shelfName, title) {
+  var titles = [];
   for (var i = 0; i < shelfName.length; i++) {
-    if (shelfName[i].title === title) {
-      return true;
-    } else {
-      continue;
-    };
+    titles.push(shelfName[i].title);
   };
-  return false;
-}
+  return titles.includes(title);
+};
 
 module.exports = {
   shelfBook,
