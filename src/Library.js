@@ -34,38 +34,52 @@ function addBook(library, book) {
 // };
 
 
+// function checkoutBook(library, title, genre) {
+//   var titlesOnShelf = [];
+//
+//   for (i = 0; i < library['shelves'][genre].length; i++) {
+//     titlesOnShelf.push(library['shelves'][genre][i]['title']);
+//   };
+//
+//   // WIP code
+//   // console.log(titlesOnShelf);
+//   // console.log(library['shelves'][genre]); // Array containing book objects!
+//   // library['shelves'][genre].pop(); // Removes last book from shelf
+//     // Could be improved to only check out specified book
+//   // return `You have now checked out ${title} from the ${library.name}`;
+//
+//   if (titlesOnShelf.includes(title)) {
+//     library['shelves'][genre].pop();
+//     return `You have now checked out ${title} from the ${library.name}`;
+//   } else {
+//     return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+//   };
+// };
+
 function checkoutBook(library, title, genre) {
-  var titlesOnShelf = [];
-
-  for (i = 0; i < library['shelves'][genre].length; i++) {
-    titlesOnShelf.push(library['shelves'][genre][i]['title']);
-  };
-
-  // WIP code
-  // console.log(titlesOnShelf);
-  // console.log(library['shelves'][genre]); // Array containing book objects!
-  // library['shelves'][genre].pop(); // Removes last book from shelf
-    // Could be improved to only check out specified book
-  // return `You have now checked out ${title} from the ${library.name}`;
-
-  if (titlesOnShelf.includes(title)) {
-    library['shelves'][genre].pop();
-    return `You have now checked out ${title} from the ${library.name}`;
-  } else {
-    return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+  for (var i = 0; i <= library['shelves'][genre].length; i++) {
+    if (library['shelves'][genre].length === 0) {
+        return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+    } else {
+      library['shelves'][genre].pop();
+      return `You have now checked out ${title} from the ${library.name}`;
+    };
   };
 };
 
-
 // alternate method
+// should check if title matches
 // function checkoutBook(library, title, genre) {
-//   for (var i = 0; i < library['shelves'][genre].length; i++) {
-//     if (library['shelves'][genre][i]['title'] === title) {
+//   for (var i = 0; i <= library['shelves'][genre].length; i++) {
+//     if (library['shelves'][genre].length === 0) {
+//         return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
+//     } else if (library['shelves'][genre][i]['title'] === title) {
 //       library['shelves'][genre].pop();
 //       return `You have now checked out ${title} from the ${library.name}`;
+//     } else {
+//       return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
 //     };
 //   };
-//   return `Sorry, there are currently no copies of ${title} available at the ${library.name}`;
 // };
 
 
