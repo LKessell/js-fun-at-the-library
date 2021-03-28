@@ -1,6 +1,6 @@
 function createTitle(title) {
   return "The " + title;
-}
+};
 
 function buildMainCharacter(name, age, pronouns) {
   return {
@@ -8,21 +8,28 @@ function buildMainCharacter(name, age, pronouns) {
     age: age,
     pronouns: pronouns,
   };
-}
+};
+
+// Round 1!
+// function saveReview(reviewText, reviews) {
+//   for (var i = 0; i <= reviews.length; i++) {
+//     if (reviewText === reviews[i]) {
+//       return;
+//     } else {
+//       return reviews.push(reviewText);
+//     };
+//   };
+// };
 
 function saveReview(reviewText, reviews) {
-  for (var i = 0; i <= reviews.length; i++) {
-    if (reviewText === reviews[i]) {
-      return;
-    } else {
-      return reviews.push(reviewText);
-    };
+  if (!reviews.includes(reviewText)) {
+    reviews.push(reviewText);
   };
-}
+};
 
 function calculatePageCount(title) {
   return title.length * 20;
-}
+};
 
 function writeBook(title, mainCharacter, genre) {
   return {
@@ -31,11 +38,11 @@ function writeBook(title, mainCharacter, genre) {
     pageCount: calculatePageCount(title),
     genre: genre,
   };
-}
+};
 
 function editBook(title) {
   title.pageCount = title.pageCount * 0.75;
-}
+};
 
 module.exports = {
   createTitle,
